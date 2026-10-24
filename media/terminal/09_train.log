@@ -1,0 +1,17 @@
+sreemanti@MacBook-Pro ai-slop-detector % python train.py
+W1024 12:55:11.142000 31303 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+train 640 texts, test 162 texts
+
+detector           accuracy  ROC AUC
+slop_rules            0.852    0.943
+tfidf_words           0.975    0.999
+perplexity            0.944    0.977
+rules_perplexity      0.951    0.994
+
+what tf-idf learned (the words with the biggest weights):
+  pushes towards HUMAN: that -2.63, my -2.60, because -1.98, so -1.95, was -1.94, really -1.79, at -1.79, they -1.75
+  pushes towards AI:    could +2.63, to see +2.56, however +2.25, also +2.23, community +2.11, interesting +2.06, privacy +2.01, crucial +1.89
+
+what rules + perplexity learned (weight per feature, after rescaling):
+  pushes towards HUMAN: log_perplexity -2.83, sentence_length -2.58, sentence_burstiness -1.99, surprise_spread -1.16
+  pushes towards AI:    stock_word_per_100_words +1.23, stock_opener_per_100_words +0.31, stock_closer_per_100_words +0.28, signposting_per_100_words +0.22

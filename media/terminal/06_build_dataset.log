@@ -1,0 +1,3 @@
+sreemanti@MacBook-Pro ai-slop-detector % python data/build_dataset.py
+train: 320 stories -> 640 texts (half human, half AI)
+test: 81 stories -> 162 texts (half human, half AI)

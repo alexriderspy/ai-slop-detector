@@ -1,0 +1,2 @@
+sreemanti@MacBook-Pro ai-slop-detector % python data/fetch_hn.py
+405 stories from 2013 to 2021 -> 401 usable comments -> data/raw/hn_human.jsonl

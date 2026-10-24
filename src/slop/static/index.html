@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI slop detector</title>
+<style>
+  :root { --bg: #f7f5f0; --ink: #1d1d1f; --muted: #6b6b70; --card: #fff; --line: #e4e0d8; --accent: #c2410c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, "Inter", system-ui, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 34px; margin: 0 0 4px; letter-spacing: -0.02em; }
+  p.sub { color: var(--muted); margin: 0 0 28px; }
+  textarea { width: 100%; min-height: 190px; padding: 16px; border: 1px solid var(--line); border-radius: 12px;
+             font: inherit; background: var(--card); resize: vertical; }
+  button { margin-top: 14px; padding: 12px 22px; border: 0; border-radius: 10px; background: var(--ink); color: #fff;
+           font: 600 16px/1 inherit; cursor: pointer; }
+  .card { margin-top: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .verdict { font-size: 28px; font-weight: 700; }
+  .prob { color: var(--muted); }
+  .bar { height: 10px; border-radius: 6px; background: #ece8e0; margin: 14px 0 22px; overflow: hidden; }
+  .bar > div { height: 100%; background: linear-gradient(90deg, #15803d, #ca8a04, #c2410c); }
+  .text { white-space: pre-wrap; }
+  mark { border-radius: 4px; padding: 1px 2px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .legend span { font-size: 14px; padding: 3px 9px; border-radius: 999px; }
+  .note { margin-top: 18px; font-size: 14px; color: var(--muted); }
+  .error { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>AI slop detector</h1>
+  <p class="sub">Paste a comment, post or paragraph of at least 40 words.</p>
+  <textarea id="text" placeholder="Paste text here"></textarea>
+  <button id="go">Check it</button>
+  <div id="out"></div>
+</main>
+<script>
+const COLORS = { stock_word: "#fed7aa", not_x_but_y: "#fecaca", em_dash: "#ddd6fe", triad: "#bfdbfe",
+  stock_opener: "#fde68a", stock_closer: "#fde68a", signposting: "#fbcfe8", emoji: "#bbf7d0", exclamation: "#e5e7eb" };
+const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+function highlighted(text, hits) {
+  let html = "", at = 0;
+  for (const h of hits) {
+    if (h.start < at) continue;  // overlapping hits: keep the first one
+    html += esc(text.slice(at, h.start)) +
+      `<mark style="background:${COLORS[h.rule]}" title="${h.rule}">${esc(text.slice(h.start, h.end))}</mark>`;
+    at = h.end;
+  }
+  return html + esc(text.slice(at));
+}
+
+document.getElementById("go").onclick = async () => {
+  const text = document.getElementById("text").value, out = document.getElementById("out");
+  const r = await fetch("/score", { method: "POST", headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({ text }) });
+  const data = await r.json();
+  if (!r.ok) { out.innerHTML = `<div class="card error">${esc(String(data.detail))}</div>`; return; }
+  const used = [...new Set(data.highlights.map(h => h.rule))];
+  out.innerHTML = `<div class="card">
+    <div class="row"><div class="verdict">${data.verdict}</div>
+      <div class="prob">${Math.round(data.ai_probability * 100)}% AI · ${data.words} words · ${data.highlights.length} slop patterns</div></div>
+    <div class="bar"><div style="width:${data.ai_probability * 100}%"></div></div>
+    <div class="text">${highlighted(text, data.highlights)}</div>
+    <div class="legend">${used.map(u => `<span style="background:${COLORS[u]}">${u.replaceAll("_", " ")}</span>`).join("")}</div>
+    <div class="note">A signal, not proof. Trained on forum comments: formal writing, like encyclopedia text, often gets wrongly flagged. Never use this alone to accuse someone of using AI.</div></div>`;
+};
+</script>
+</body>
+</html>

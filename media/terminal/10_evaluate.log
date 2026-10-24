@@ -1,0 +1,26 @@
+sreemanti@MacBook-Pro ai-slop-detector % python evaluate.py
+W1024 13:01:09.510000 32095 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+
+== HN test (home): 81 human, 81 AI ==
+detector             humans flagged        AI caught  ROC AUC
+                    at 0.5 / at 0.8  at 0.5 / at 0.8
+slop_rules             12.3% / 2.5%    82.7% / 65.4%    0.943
+tfidf_words             2.5% / 0.0%    97.5% / 79.0%    0.999
+perplexity              7.4% / 2.5%    96.3% / 84.0%    0.977
+rules_perplexity        4.9% / 1.2%    95.1% / 92.6%    0.994
+
+== Wikipedia (never seen): 59 human, 59 AI ==
+detector             humans flagged        AI caught  ROC AUC
+                    at 0.5 / at 0.8  at 0.5 / at 0.8
+slop_rules              5.1% / 1.7%    57.6% / 27.1%    0.876
+tfidf_words             1.7% / 0.0%     40.7% / 0.0%    0.803
+perplexity            98.3% / 83.1%  100.0% / 100.0%    0.965
+rules_perplexity      72.9% / 45.8%  100.0% / 100.0%    0.981
+
+== AI rewritten (attack): 0 human, 81 AI ==
+detector             humans flagged        AI caught  ROC AUC
+                    at 0.5 / at 0.8  at 0.5 / at 0.8
+slop_rules                    - / -    91.4% / 70.4%        -
+tfidf_words                   - / -     28.4% / 0.0%        -
+perplexity                    - / -    39.5% / 13.6%        -
+rules_perplexity              - / -    69.1% / 39.5%        -

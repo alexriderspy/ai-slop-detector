@@ -1,0 +1,11 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/rule_rates.py
+per 1,000 words     HN human       HN AI  Wiki human
+stock_word              0.18        5.85        0.17
+not_x_but_y             0.13        0.39        0.00
+em_dash                 0.58        0.58        1.82
+triad                   1.11        1.23        6.29
+stock_opener            0.16        0.18        0.00
+stock_closer            0.03        1.48        0.00
+signposting             0.00        0.35        0.00
+emoji                   0.00        0.00        0.00
+exclamation             2.24        0.69        0.00

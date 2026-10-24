@@ -1,0 +1,5 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/surprise_by_class.py
+W1024 13:00:46.554000 32082 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+human: 81 comments, average surprise 3.63 (perplexity 37.8), spread 3.06
+   AI: 81 comments, average surprise 2.41 (perplexity 11.1), spread 2.44
+AI comments less surprising than the median human comment: 81/81

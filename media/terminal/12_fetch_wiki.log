@@ -1,0 +1,2 @@
+sreemanti@MacBook-Pro ai-slop-detector % python data/fetch_wiki.py
+60 articles -> 59 openings from before 2022 -> data/raw/wiki_human.jsonl

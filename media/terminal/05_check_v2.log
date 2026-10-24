@@ -1,0 +1,4 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/check_confounds.py data/raw/hn_ai.jsonl
+           texts  median words  <40 w  #tags  emoji
+human        401            83   0.0%   0.5%   0.0%
+AI           401            92   0.0%   0.0%   0.0%

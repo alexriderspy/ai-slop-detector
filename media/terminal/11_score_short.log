@@ -1,0 +1,3 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/score.py http://127.0.0.1:55919 examples/too_short.txt
+HTTP 422
+Need at least 40 words to judge, got 6.

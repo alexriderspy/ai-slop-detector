@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.db
+.DS_Store
+# data is rebuilt by the scripts in data/; the trained model by train.py
+data/raw/
+data/*.jsonl
+models/

@@ -1,0 +1,18 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/demo_surprise.py The focus on safety without sacrificing performance is a game-changer.
+W1024 12:54:46.816000 31268 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+           'The'  surprise  5.94
+        ' focus'  surprise  9.01
+           ' on'  surprise  2.59
+       ' safety'  surprise  6.59
+      ' without'  surprise  8.55
+  ' sacrificing'  surprise  3.43
+  ' performance'  surprise  2.71
+           ' is'  surprise  1.17
+            ' a'  surprise  0.75
+         ' game'  surprise  6.74
+           '-ch'  surprise  0.01
+         'anger'  surprise  0.00
+             '.'  surprise  1.53
+
+average surprise 3.77 -> perplexity 43.4
+spread of surprise 3.21

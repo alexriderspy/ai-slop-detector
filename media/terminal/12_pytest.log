@@ -1,0 +1,26 @@
+sreemanti@MacBook-Pro ai-slop-detector % pytest -v --no-header
+============================================ test session starts =============================================
+collecting ... collected 20 items
+
+tests/test_api.py::test_score_returns_verdict_and_highlights PASSED                                    [  5%]
+tests/test_api.py::test_short_text_is_refused PASSED                                                   [ 10%]
+tests/test_api.py::test_verdict_bands[0.95-likely AI] PASSED                                           [ 15%]
+tests/test_api.py::test_verdict_bands[0.5-can't tell] PASSED                                           [ 20%]
+tests/test_api.py::test_verdict_bands[0.1-likely human] PASSED                                         [ 25%]
+tests/test_features.py::test_style_features_line_up_with_their_names PASSED                            [ 30%]
+tests/test_features.py::test_uneven_sentences_are_burstier PASSED                                      [ 35%]
+tests/test_rules.py::test_each_rule_fires[Let us delve into the details.-stock_word] PASSED            [ 40%]
+tests/test_rules.py::test_each_rule_fires[This is a robust and seamless solution.-stock_word] PASSED   [ 45%]
+tests/test_rules.py::test_each_rule_fires[It's not just a tool, but a way of thinking.-not_x_but_y] PASSED [ 50%]
+tests/test_rules.py::test_each_rule_fires[The update \u2014 finally \u2014 shipped.-em_dash] PASSED    [ 55%]
+tests/test_rules.py::test_each_rule_fires[It is fast, cheap, and reliable.-triad] PASSED               [ 60%]
+tests/test_rules.py::test_each_rule_fires[Great point! I agree.-stock_opener] PASSED                   [ 65%]
+tests/test_rules.py::test_each_rule_fires[Overall, it works.-stock_closer] PASSED                      [ 70%]
+tests/test_rules.py::test_each_rule_fires[It's important to note that caching helps.-signposting] PASSED [ 75%]
+tests/test_rules.py::test_each_rule_fires[Love this \U0001f680-emoji] PASSED                           [ 80%]
+tests/test_rules.py::test_plain_human_text_has_no_hits PASSED                                          [ 85%]
+tests/test_rules.py::test_hits_keep_their_position_for_highlighting PASSED                             [ 90%]
+tests/test_text.py::test_clean_turns_hn_html_into_plain_text PASSED                                    [ 95%]
+tests/test_text.py::test_sentences_and_words PASSED                                                    [100%]
+
+============================================= 20 passed in 7.05s =============================================

@@ -1,0 +1,6 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/score.py http://127.0.0.1:55919 examples/ai_comment.txt
+HTTP 200
+verdict: likely AI   P(AI) = 1.0   words: 84
+  stock_word     'game-changer'
+  stock_closer   'Overall,'
+  em_dash        '—'

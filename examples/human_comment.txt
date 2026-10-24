@@ -1,0 +1,1 @@
+i deduced my dad's password when I was a middle-schooler. The uni micro had a teletype and although it did not echo password characters, if you mistyped your password, it would print the mistyped password, and knowing a bit about my dad, I could figure out what the correct password was. I logged in and sent himself an email reminding him to use a better password.

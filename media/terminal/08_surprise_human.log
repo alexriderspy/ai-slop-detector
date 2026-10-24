@@ -1,0 +1,22 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/demo_surprise.py I can't help but feel the language has a very steep learning curve, however.
+W1024 12:54:59.476000 31279 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+             'I'  surprise  7.17
+          ' can'  surprise  3.60
+            "'t"  surprise  4.51
+         ' help'  surprise  2.10
+          ' but'  surprise  0.96
+         ' feel'  surprise  1.54
+          ' the'  surprise  3.95
+     ' language'  surprise  9.91
+          ' has'  surprise  4.40
+            ' a'  surprise  4.53
+         ' very'  surprise  3.75
+        ' steep'  surprise  9.06
+     ' learning'  surprise  0.37
+        ' curve'  surprise  0.00
+             ','  surprise  1.47
+      ' however'  surprise  6.31
+             '.'  surprise  1.18
+
+average surprise 3.81 -> perplexity 45.3
+spread of surprise 2.94

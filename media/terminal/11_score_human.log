@@ -1,0 +1,3 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/score.py http://127.0.0.1:55919 examples/human_comment.txt
+HTTP 200
+verdict: likely human   P(AI) = 0.0   words: 66
