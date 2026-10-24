@@ -1,0 +1,7 @@
+sreemanti@MacBook-Pro ai-slop-detector % python scripts/rewrite_features.py
+W1024 13:06:48.892000 33453 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+average                     human (test)     AI (test)  AI rewritten
+stock_word_per_100_words            0.01          0.48          0.04
+em_dash_per_100_words               0.08          0.03          0.16
+sentence_length                    21.21         15.84         11.63
+sentence_burstiness                 0.48          0.26          0.30

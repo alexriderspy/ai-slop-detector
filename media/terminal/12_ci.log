@@ -1,0 +1,25 @@
+sreemanti@MacBook-Pro ai-slop-detector % gh run view 40074590061 -R alexriderspy/ai-slop-detector --verbose
+
+✓ main ci · 40074590061
+Triggered via push about 2 minutes ago
+
+JOBS
+✓ check in 2m2s (ID 120815133139)
+  ✓ Set up job
+  ✓ Run actions/checkout@v5
+  ✓ Run actions/setup-python@v6
+  ✓ Install
+  ✓ Lint
+  ✓ Type check
+  ✓ Tests
+  ✓ Post Run actions/setup-python@v6
+  ✓ Post Run actions/checkout@v5
+  ✓ Complete job
+
+ANNOTATIONS
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+check: .github#1
+
+
+For more information about the job, try: gh run view --job=120815133139
+View this run on GitHub: https://github.com/alexriderspy/ai-slop-detector/actions/runs/40074590061
